@@ -1,13 +1,5 @@
 import twilio from 'twilio'
 
-// you dont need to call twillo with these args,
-// they're just taken from env automatiocally
-//
-// const sid = Bun.env.TWILIO_ACCOUNT_SID
-// const auth = Bun.env.TWILIO_ACCOUNT_AUTH
-//
-// const client = twilio(sid,auth)
-
 const client = twilio()
 
 const testUser = {
