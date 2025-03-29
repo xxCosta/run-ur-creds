@@ -44,7 +44,7 @@ const server = new Elysia()
         let m = "hello"
         return m
     })
-    .post('/newUserPhone',(context) => {
+    .post('/newUserPhone',async (context) => {
         let user = context.body as PhoneUser
         if (!user.name || !user.username || !user.phone){
             const requiredFields = ["name", "username", "phone"]
@@ -66,6 +66,8 @@ const server = new Elysia()
             ) 
                 throw new Error('ur already on the list fam')
         }
+
+        
 
         const addUser = db.query("INSERT INTO test (name, username, number) values (?1, ?2, ?3);")
         addUser.all(user.name,user.username,user.phone) 
