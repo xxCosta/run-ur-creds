@@ -14,6 +14,10 @@ const randomWholeNumber = () => {
     return n
 }
 
+const randomSingleDigit = () => {
+    return Math.floor(Math.random() * 10)
+}
+
 const alphabetNum = () => {
     let n = randomWholeNumber()
     while(n >= 26){
@@ -23,16 +27,18 @@ const alphabetNum = () => {
 }
 
 
-let codeLength = 3
-let cAlpha = []
-let cNums = []
+const codeLength = 3
+let codeArr = []
 for (let i = 0; i  < codeLength; i ++) {
-    let p = alphabetNum()
-    let q = randomWholeNumber()
-    cAlpha.push(alpha.at(p)) 
-    if (cNums.length < 3){
-        cNums.push(q) 
-    }
+    const alphaNum = alphabetNum()
+    const letter = alpha.at(alphaNum)?.toUpperCase()
+    const number = randomSingleDigit()
+    codeArr.push(letter) 
+    codeArr.push(number)
 }
 
-console.log(cNums)
+const code = codeArr.join("")
+console.log(code)
+
+module.exports = code 
+
