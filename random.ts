@@ -38,7 +38,8 @@ for (let i = 0; i  < codeLength; i ++) {
 }
 
 const code = codeArr.join("")
-console.log(code)
+//console.log(code)
 
-module.exports = code 
+export default code
+// module.exports = code 
 
