@@ -43,10 +43,11 @@ const server = new Elysia()
   .post("/newUserPhone", async (context) => {
     let user = context.body as PhoneUser;
     console.log(user);
+    
     if (!user.name || !user.username || !user.phone) {
       const requiredFields = ["name", "username", "phone"];
       const missingFields = requiredFields.filter((field) => {
-        !user[field as keyof PhoneUser];
+        return !user[field as keyof PhoneUser];
       });
       console.error(
         `error adding ${user.username} to database`,
@@ -66,7 +67,7 @@ const server = new Elysia()
     }
 
     const sendVerificationCode = async () => {
-        const message = await client.messages.create({
+        await client.messages.create({
             body: RandomCode,
             to: "+1" + user.phone,
             from: Bun.env.APP_NUMBER,

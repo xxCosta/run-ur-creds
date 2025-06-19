@@ -1,4 +1,4 @@
 http post localhost:3000/newUserPhone \
     username=yosemitetom \
-    name="mike tyson" \
+    name="" \
     phone=$TEST_NUMBER
